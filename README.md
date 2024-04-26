@@ -245,7 +245,7 @@ Project Link: [https://github.com/paoloscofield/playstation-price-tracker](https
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
 [issues-url]: https://github.com/paoloscofield/playstation-price-tracker/issues
 [license-shield]: https://img.shields.io/github/license/paoloscofield/playstation-price-tracker.svg?style=for-the-badge
-[license-url]: https://github.com/paoloscofield/playstation-price-tracker/blob/master/LICENSE.txt
+[license-url]: https://github.com/paoloscofield/playstation-price-tracker/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/paolo-scofield-design
 [product-screenshot]: images/screenshot.png
