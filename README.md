@@ -19,10 +19,11 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+[![Issues][issues-shield]][issues-url]-->
+
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -37,7 +38,7 @@
 </div>
 <br />
 <!-- TABLE OF CONTENTS -->
-<details style='background-color: #f2f2f2; padding: 20px;'>
+<details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -80,16 +81,16 @@ The app is just a demonstrative app to test my skills and not for commercial pur
 
 ### Built With
 
-[![React][React.js]][React-url]
-[![Node.js][Node.js]][Node-url]
+[![React][React.js]][React-url]<br>
+[![Node.js][Node.js]][Node-url]<br>
 [![Express.js][Express.js]][Express.js-url]
 
 ### Packages
 
-[![Cheerio][Cheerio]][Cheerio-url]
-[![Axios][Axios]][Axios-url]
-[![Node-cron][Node-cron]][Node-cron-url]
-[![React-router][React-router]][React-router-url]
+[![Cheerio][Cheerio]][Cheerio-url]<br>
+[![Axios][Axios]][Axios-url]<br>
+[![Node-cron][Node-cron]][Node-cron-url]<br>
+[![React-router][React-router]][React-router-url]<br>
 [![Chart.js][Chart.js]][Chart.js-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -229,22 +230,23 @@ Project Link: [https://github.com/paoloscofield/playstation-price-tracker](https
 
 ## Acknowledgments
 
-- [Riccardo Sirgu](https://github.com/ricsirigu) for technical support and helpful advices
+- [Riccardo Sirigu](https://github.com/ricsirigu) for technical support and helpful advices
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/paoloscofield/playstation-price-tracker.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/paoloscofield/playstation-price-tracker.svg?style=for-the-badge
 [contributors-url]: https://github.com/paoloscofield/playstation-price-tracker/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/paoloscofield/playstation-price-tracker.svg?style=for-the-badge
 [forks-url]: https://github.com/paoloscofield/playstation-price-tracker/network/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
 [stars-url]: https://github.com/github_username/repo_name/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/paoloscofield/playstation-price-tracker/issues
-[license-shield]: https://img.shields.io/github/license/paoloscofield/playstation-price-tracker.svg?style=for-the-badge
+[issues-url]: https://github.com/paoloscofield/playstation-price-tracker/issues -->
+
+[license-shield]: https://img.shields.io/badge/license-MIT--modified-normal?style=for-the-badge&label=LICENSE
 [license-url]: https://github.com/paoloscofield/playstation-price-tracker/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/paolo-scofield-design
