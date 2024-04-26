@@ -1,0 +1,461 @@
+/*Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Variables*/
+:root {
+  --textColor: #fff;
+  --accentColor: #0046ce;
+  --accentColorHover: #002e8b;
+
+  --color-negative: #ce0000;
+  --color-positive: #008e5a;
+  --color-neutral: #505050;
+
+  --font-size-desktop: 16px;
+  --font-size-mobile: 14px;
+  --font-size-micro: 10px;
+
+  --font-size-h1: 1.75rem;
+  --font-size-h2: 1.35rem;
+  --font-size-h3: 1.1rem;
+  --font-size-h4: 1rem;
+  --font-size-h5: 0.9rem;
+  --font-size-h6: 0.75rem;
+
+  --font-family: Inter, sans-serif;
+}
+
+/*Typography*/
+html {
+  font-size: var(--font-size-mobile);
+  font-family: var(--font-family);
+  color: var(--textColor);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+}
+h4 {
+  font-size: var(--font-size-h4);
+}
+h5 {
+  font-size: var(--font-size-h5);
+}
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+/*Larger screens*/
+@media only screen and (min-width: 1024px) {
+  html {
+    font-size: var(--font-size-desktop);
+  }
+}
+
+/*Small screens*/
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: var(--font-size-micro);
+  }
+}
+
+/*Background*/
+body {
+  min-height: 96vh;
+  background-image: linear-gradient(
+      330deg,
+      rgba(225, 225, 225, 0.05) 0%,
+      rgba(225, 225, 225, 0.05) 33.333%,
+      rgba(114, 114, 114, 0.05) 33.333%,
+      rgba(114, 114, 114, 0.05) 66.666%,
+      rgba(52, 52, 52, 0.05) 66.666%,
+      rgba(52, 52, 52, 0.05) 99.999%
+    ),
+    linear-gradient(
+      66deg,
+      rgba(181, 181, 181, 0.05) 0%,
+      rgba(181, 181, 181, 0.05) 33.333%,
+      rgba(27, 27, 27, 0.05) 33.333%,
+      rgba(27, 27, 27, 0.05) 66.666%,
+      rgba(251, 251, 251, 0.05) 66.666%,
+      rgba(251, 251, 251, 0.05) 99.999%
+    ),
+    linear-gradient(
+      225deg,
+      rgba(98, 98, 98, 0.05) 0%,
+      rgba(98, 98, 98, 0.05) 33.333%,
+      rgba(222, 222, 222, 0.05) 33.333%,
+      rgba(222, 222, 222, 0.05) 66.666%,
+      rgba(228, 228, 228, 0.05) 66.666%,
+      rgba(228, 228, 228, 0.05) 99.999%
+    ),
+    linear-gradient(90deg, rgb(28, 20, 63), rgb(40, 160, 253));
+}
+
+/*Layout*/
+#root {
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/*Animation*/
+#root *:not(.modal, .modal > *) {
+  animation: loaded 0.3s ease-out;
+}
+
+@keyframes loaded {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/*********/
+/* GLOBAL */
+/*********/
+
+.logo-link {
+  width: fit-content;
+}
+
+.logo {
+  max-width: 250px;
+}
+
+.link-store {
+  background-color: var(--accentColor);
+  color: var(--textColor);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  & img {
+    margin-right: 10px;
+    margin-bottom: -2px;
+  }
+
+  &:hover {
+    background-color: var(--accentColorHover);
+  }
+}
+
+/*Modal*/
+.modal {
+  position: fixed;
+  width: 90%;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0;
+  animation: toggle 2.5s;
+}
+
+@keyframes toggle {
+  10% {
+    top: 50px;
+    opacity: 1;
+  }
+  50% {
+    top: 50px;
+    opacity: 1;
+  }
+  90% {
+    top: 50px;
+    opacity: 1;
+  }
+  100% {
+    top: 30px;
+    opacity: 0;
+  }
+}
+
+[mood*="negative"] {
+  background-color: var(--color-negative);
+}
+
+[mood*="positive"] {
+  background-color: var(--color-positive);
+}
+
+[mood*="neutral"] {
+  background-color: var(--color-neutral);
+}
+
+.modal hr {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  animation: loading 2.5s linear;
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 98%;
+  }
+}
+
+/*Footer*/
+.footer {
+  margin-top: 100px;
+  text-align: center;
+
+  & h6 {
+    font-weight: normal;
+  }
+
+  & a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffd400;
+    transition: 0.2s;
+    &:hover {
+      filter: brightness(0.7);
+    }
+  }
+}
+
+/*********/
+/* HOME */
+/*********/
+
+.input-container {
+  margin: 50px 0;
+}
+
+.enter-text {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+form {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#url {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  padding-left: 15px;
+}
+
+#submit {
+  width: 180px;
+  margin: 0;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background: var(--accentColor);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--textColor);
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--accentColorHover);
+  }
+}
+
+/*Lista giochi*/
+.game {
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  background-position: center center;
+  padding: 4rem 2rem;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.game__info {
+  padding-right: 40px;
+}
+
+.link-store--game {
+  font-size: 0.85rem;
+}
+
+.game__title {
+  margin: 20px 0 10px 0;
+  max-width: 30ch;
+}
+
+.game__publisher {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.game__price {
+  display: flex;
+  align-items: center;
+}
+
+.game__price > * {
+  margin-right: 10px;
+}
+
+.game__discount {
+  background: var(--accentColor);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.game__original-price {
+  font-weight: normal;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.game__actions {
+  display: flex;
+  align-items: center;
+}
+
+.game__actions > * {
+  width: 3.5rem;
+  aspect-ratio: 1;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.6);
+  }
+}
+
+.game__actions button {
+  background: none;
+  border: none;
+  margin-left: 15px;
+}
+
+/*********/
+/* GAMEPAGELAYOUT */
+/*********/
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+nav > .logo-container {
+  flex-grow: 1;
+}
+
+.back-btn {
+  padding: 20px 0;
+  float: right;
+
+  & a {
+    text-decoration: none;
+    color: var(--textColor);
+    transition: 0.3s;
+
+    &:visited {
+      color: var(--textColor);
+      text-decoration: none;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.gamePage__cover {
+  & img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 450px;
+  }
+}
+
+.gamePage__info {
+  margin-top: -5px;
+  padding: 40px 8%;
+  background: rgba(0, 0, 0, 0.3);
+
+  & .gamePage__title {
+    margin: 20px 0 8px 0;
+  }
+  & .gamePage__publisher {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  & .gamePage__price {
+    display: flex;
+    margin-top: 3rem;
+  }
+  & .gamePage__discount {
+    font-size: 1.2rem;
+    padding: 2px;
+    background: var(--accentColor);
+    margin-right: 5px;
+    border-radius: 4px;
+  }
+}
+
+.gamePage__price > * {
+  margin-right: 3rem;
+  & > h4,
+  & > h2 {
+    font-size: 1.4rem;
+    margin: 4px 0;
+  }
+  & > h5 {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  & .subtitle {
+    font-weight: normal;
+  }
+}
+
+.chart-prices {
+  margin-top: 50px;
+  width: 100%;
+  aspect-ratio: 2;
+}
+
+/*Media query larger screens*/
+@media (min-width: 1024px) {
+  .gamePage__cover img {
+    max-height: 430px;
+  }
+}
