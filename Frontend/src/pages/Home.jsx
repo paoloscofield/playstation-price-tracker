@@ -88,19 +88,19 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.target.submit.setAttribute("disabled", "");
-    let newGame = "";
     if (website !== "") {
-      newGame = website;
+      const newGame = website;
+      await sendGame(newGame);
     } else {
       modal("Campo vuoto", "neutral");
       e.target.submit.removeAttribute("disabled");
       return;
     }
-    await sendGame(newGame);
     setTimeout(() => {
       e.target.submit.removeAttribute("disabled");
     }, 500);
   };
+
   return (
     <>
       <nav>
@@ -111,13 +111,11 @@ const Home = () => {
         </div>
       </nav>
       <div className="input-container">
-        {showModal ? (
+        {showModal && (
           <div className="modal" mood={modalText.mood}>
             <h3>{modalText.text}</h3>
             <hr />
           </div>
-        ) : (
-          ""
         )}
         <h3 className="enter-text">Enter the game URL you want to track:</h3>
         <form onSubmit={handleSubmit}>

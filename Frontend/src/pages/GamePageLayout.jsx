@@ -58,10 +58,10 @@ const GamePageLayout = () => {
             <div className="now">
               <h4 className="subtitle">Now:</h4>
               <h2>
-                {originalPrice !== 0 ? <span className="gamePage__discount">{discount}%</span> : null}
+                {originalPrice !== 0 && <span className="gamePage__discount">{discount}%</span>}
                 {finalPrice} €
               </h2>
-              {originalPrice ? <h5>{originalPrice}€</h5> : null}
+              {originalPrice !== 0 && <h5>{originalPrice}€</h5>}
             </div>
             <div className="latest">
               <h4 className="subtitle">Latest:</h4>

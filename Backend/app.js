@@ -16,7 +16,12 @@ const generateId = () => {
   for (let i = 0; i < 5; i++) {
     id += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-  return id;
+  const checkId = (element) => element.id === id;
+  if (games.some(checkId)) {
+    generateId();
+  } else {
+    return id;
+  }
 };
 
 const scrape = async (originSite) => {
@@ -56,14 +61,19 @@ const scrape = async (originSite) => {
   originalPrice = Number(originalPrice.replace("€", "").replace(",", "."));
 
   /*Discount*/
-  const discount = Math.round((1 - finalPrice / originalPrice) * 100);
+  let discount = "";
+  if (originalPrice === 0) {
+    discount = 0;
+  } else {
+    discount = Math.round((1 - finalPrice / originalPrice) * 100);
+  }
 
   /* Generate id */
   const id = generateId();
 
   /*Dataset chart.js*/
   const d = new Date();
-  const time = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear();
+  const time = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
   const prices = [];
   prices.push({ time: time, price: finalPrice });
 
@@ -85,11 +95,47 @@ const scrape = async (originSite) => {
 };
 
 /*Scrape price every Thursday*/
+
+const scrapeNewPrice = async (url) => {
+  const response = await axios(url);
+  const $ = cheerio.load(response.data);
+
+  /*Actual price*/
+  let fp = $('[data-qa*="mfeCtaMain#offer0#finalPrice"]').text();
+  fp = Number(fp.replace("€", "").replace(",", "."));
+
+  /*Original price*/
+  let op = $('[data-qa*="mfeCtaMain#offer0#originalPrice"]').text();
+  op = Number(op.replace("€", "").replace(",", "."));
+
+  /*Discount*/
+  let dscnt = "";
+  if (op === 0) {
+    dscnt = 0;
+  } else {
+    dscnt = Math.round((1 - tp / op) * 100);
+  }
+
+  const newGameData = {
+    final: fp,
+    original: op,
+    discount: dscnt,
+  };
+
+  return newGameData;
+};
+
 const scrapeThursday = cron.schedule("* * 3 * * Thursday", () => {
   const d = new Date();
-  const time = d.getFullYear() + "/" + d.getMonth() + "/" + d.getDate();
-  games.map((game) => {
-    game.priceHistory.push({ time: time, price: game.finalPrice });
+  const time = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+
+  games.map(async (game) => {
+    const dataNow = await scrapeNewPrice(game.url);
+    /*Get new price*/
+    game.finalPrice = dataNow.final;
+    game.originalPrice = dataNow.original;
+    game.discount = dataNow.discount;
+    game.priceHistory.push({ time: time, price: dataNow.final });
   });
 });
 
